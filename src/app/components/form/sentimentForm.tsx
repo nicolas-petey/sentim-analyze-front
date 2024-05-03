@@ -8,12 +8,11 @@ const SentimentForm: React.FC = () => {
   const [result, setResult] = useState("");
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const url = process.env.URL_API;
+  const url = process.env.NEXT_PUBLIC_URL_API;
 
   const analyzeText = async () => {
     try {
-      console.log(`URL_API ${process.env.URL_API}`);
-      const response = await fetch(`${process.env.URL_API}`, {
+      const response = await fetch(`${url}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
