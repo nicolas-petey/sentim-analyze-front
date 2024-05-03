@@ -26,6 +26,3 @@ jobs:
 
       - name: Construction du projet
         run: npm run build
-
-      - name: Lancement du projet en production
-        run: npm run start
