@@ -1,0 +1,28 @@
+name: Déploiement continu
+
+on:
+  push:
+    branches:
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Utilisation de Node.js 20
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Installation des dépendances
+        run: npm i
+
+      - name: Construction du projet
+        run: npm run build
