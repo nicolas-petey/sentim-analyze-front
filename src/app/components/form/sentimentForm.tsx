@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import React, { useState } from "react";
 import ImageAleatoire from "../Image/ImageAleatoire";
 
@@ -9,9 +8,11 @@ const SentimentForm: React.FC = () => {
   const [result, setResult] = useState("");
   const [refreshKey, setRefreshKey] = useState(0);
 
+  const url = process.env.NEXT_PUBLIC_URL_API;
+
   const analyzeText = async () => {
     try {
-      const response = await fetch("http://localhost:3000/analyze-sentiment", {
+      const response = await fetch(`${url}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
